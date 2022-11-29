@@ -63,15 +63,49 @@ class shell_execute{
     }
 
     public static function getIP(){
-        
+        $ipaddress = null;
+
+        if (isset($_SERVER['HTTP_CLIENT_IP']))
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        else if(isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
+            $ipaddress = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+        else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        else if(isset($_SERVER['REMOTE_ADDR']))
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;        
     }
 
-    public static function getIPGeo($ip = null){
+    public static function getGeoLocation($ip = null){
+        
+        $country = "UNKNOWN";
+        $isp = "UNKNOWN";
         if(is_null($ip)){
-            return "no-IP";
-        }else{
-
+            $ip = self::getIP();
         }
+
+        $getGeoLocation = json_decode(file_get_contents("https://api.iplocation.net/?ip=".$ip),true);
+        if(!isset($getGeoLocation['country_name'])){
+            $geo = array(
+                "ctry"=>$country,
+                "isp"=>$isp
+            );
+        }else{
+            $geo = array(
+                "ctry"=>$getGeoLocation['country_name'],
+                "isp"=>$getGeoLocation['isp']
+            );
+        }
+
+        return $geo;
     }
 
     public static function query_exe($request=null,$uID=null,$type=1){
