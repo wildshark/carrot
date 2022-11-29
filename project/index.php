@@ -30,5 +30,4 @@ if(!isset($_REQUEST['_submit'])){
 }else{
      __model($apps,$template,$request);
 }
-
 ?>
