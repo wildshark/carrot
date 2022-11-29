@@ -1,7 +1,7 @@
 <?php
-namespace shellEXE;
+namespace shell;
 
-class shell{
+class shell_execute{
 
     public static function getURL($mode = "dome"){
 
@@ -12,6 +12,29 @@ class shell{
         }
         return $url;
 
+    }
+
+    public static function getAuthorization($usrn,$pwd,$type=1){
+        
+        switch($type){
+
+            case 1:
+                $auth =[
+                    "account"=>7635469912694,
+                    "email"=>$usrn,
+                    "password"=>$pwd
+                ];
+            break;
+
+            case 2:
+                $auth = $usrn.":". $pwd;
+            break;
+
+            case 3:
+                $auth = base64_encode($usrn.":". $pwd);
+            break;
+        }
+        return $auth;
     }
 
     public static function getSESSION_ID($uID = null){
