@@ -1,6 +1,8 @@
 <?php
 /**************************************************************
+ * carrot ver 1.0
  * 
+ *  
  **************************************************************/
 session_start();
 include_once("./control/global.php");
@@ -20,13 +22,13 @@ if(!isset($_REQUEST['_submit'])){
             require_once($_temp['login']);
             exit(0);
         }else{
-
+            __main($apps,$template,$request);
         }
     }else{
-
+        __page($apps,$template,$request);
     }
 }else{
-    
+     __model($apps,$template,$request);
 }
 
 ?>

@@ -4,6 +4,10 @@ function uSessionToken(){
 
 }
 
+function uPageMain(){
+    
+}
+
 function pdoMYSQL_CONNECTION($set = null,$type = null,$dbname = null){
     
     $conn = null; 

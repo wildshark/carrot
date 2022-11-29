@@ -1,14 +1,22 @@
 <?php
 
-$GLOBALS['appname'] ="Bankash";
-$GLOBALS['ver'] ="ver 0.1";
 $GLOBALS['date'] = date("d-m-Y");
 $GLOBALS['time'] = date("H-i-s A");
-$GLOBALS['title'] = "BANKASH <small>1.2</small>";
-$GLOBALS['header-title'] = "<title>BANKASH</title>";
 
-$GLOBALS['FP_key'] = "";
-$GLOBALS['PSP_key'] = "";
+$_apps = [
+    "name" =>"",
+    "version"=>"",
+    "title"=>""
+];
+
+$_flutterwave = [
+    "public_key" => "",
+    "" => ""
+];
+
+$_paystack = [
+    "public_key" => ""
+];
 
 $_template = [
     "login"=>"./frame/login.php",
