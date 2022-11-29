@@ -11,7 +11,6 @@ class shell_execute{
             $url = "http://carrot/carrot/?";
         }
         return $url;
-
     }
 
     public static function getAuthorization($usrn = null,$pwd = null,$type = 1){
