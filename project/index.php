@@ -11,7 +11,7 @@ include_once("./control/model.php");
 include_once("./control/navgation.php");
 
 use shell\shell_execute;
-$_shell = new shell_execute;
+$uSHELL = new shell_execute;
 
 if(!isset($_REQUEST['_submit'])){
     if(!isset($_REQUEST['page'])){

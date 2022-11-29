@@ -6,15 +6,15 @@ class shell_execute{
     public static function getURL($mode = "dome"){
 
         if($mode !== "live"){
-            $url = "http://localhost/gbankash/?";
+            $url = "http://localhost/carrot/?";
         }else{
-            $url = "http://161.35.237.70/gbankash/?";
+            $url = "http://carrot/carrot/?";
         }
         return $url;
 
     }
 
-    public static function getAuthorization($usrn,$pwd,$type=1){
+    public static function getAuthorization($usrn = null,$pwd = null,$type = 1){
         
         switch($type){
 
@@ -65,6 +65,14 @@ class shell_execute{
 
     public static function getIP(){
         
+    }
+
+    public static function getIPGeo($ip = null){
+        if(is_null($ip)){
+            return "no-IP";
+        }else{
+
+        }
     }
 
     public static function query_exe($request=null,$uID=null,$type=1){
