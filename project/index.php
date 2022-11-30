@@ -1,9 +1,12 @@
 <?php
-/**************************************************************
- * carrot ver 1.0
- * 
- *  
- **************************************************************/
+/****************************************************************
+ * Carrot Project Framework 1.0
+ * Develop by Andrew Quaye
+ * Copyright iQuipe Digital Enterprise
+ * Email iquipe@outlook.com
+ * Mobile +233 548 263 738
+ * License MIT
+ ***************************************************************/
 session_start();
 include_once("./control/global.php");
 include_once("./control/shell.php");
